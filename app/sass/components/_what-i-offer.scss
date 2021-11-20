@@ -1,0 +1,80 @@
+.what-i-offer {
+  border-top: $border;
+  padding-top: 36px;
+}
+
+.what-i-offer__heading {
+  text-align: center;
+}
+
+.what-i-offer__list {
+   @include clearfix;
+   color: $background-color;
+   margin-top: 40px;
+   margin-bottom: 90px; 
+}
+
+.offer-heading {
+  @include transition-property(color);
+  @include transition-duration($transition-duration);
+  color: $background-color;
+  font-size: 26px;
+}
+
+.what-i-offer__item {
+  width: 20%;
+  float: left;
+  padding-right: 1px;
+
+  &:last-of-type {
+  	padding-right: 0;
+  }
+}
+
+.pre-campaign-offer,
+.pay-per-click-offer {
+  line-height: 1.35;
+}
+
+.what-i-offer__item-content {
+  @include transition-property(color background-color);
+  @include transition-duration($transition-duration);
+  background-color: $heading-color;
+  display: block;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 16px 10px 45px;
+  position: relative;
+
+  &:hover {
+    background-color: #FFF;
+    color: $heading-color;
+
+    .offer-heading {
+      color: $heading-color;
+    }
+  }
+}
+
+.continue-reading {
+  margin-top: auto;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: absolute;
+  bottom: 14px;
+  left: 10px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media(max-width: 750px) {
+  .what-i-offer__item {
+    width: 50%;
+  }
+}
+
+@media(max-width: 536px) {
+  .what-i-offer__item {
+    width: 100%;
+  }
+}

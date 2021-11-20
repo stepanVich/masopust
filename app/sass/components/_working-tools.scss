@@ -1,0 +1,70 @@
+.working-tools {
+  @include clearfix;
+  border-top: $border;
+  color: $heading-color;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.working-tools__text-block,
+.working-tools__arrow-block,
+.working-tools__google-adwords-block,
+.working-tools__youtube-block,
+.working-tools__facebook-block,
+.working-tools__linkedin-block,
+.working-tools__instagram-block {
+  text-align: center;
+  display: block;
+  float: left;
+  width: 14%;
+}
+
+.working-tools__text-block {
+  width: 21%;
+  text-align: left;
+  @media(max-width: 843px) {
+    width: 100%;
+  }
+}
+
+.working-tools__arrow-block {
+  width: 7%;
+  pointer-events: none;
+  text-align: right;
+  @media(max-width: 843px) {
+    display: none;
+  }
+}
+
+.working-tools__google-adwords-block,
+.working-tools__youtube-block,
+.working-tools__facebook-block,
+.working-tools__linkedin-block,
+.working-tools__instagram-block {
+  text-align: right;
+  min-width: 80px;
+  padding: 5px;
+  @media(max-width: 843px) {
+    text-align: left;
+  }
+}
+
+.arrow-right,
+.google-adwords,
+.youtube,
+.facebook,
+.linkedin,
+.instagram {
+  display: block;
+  height: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.arrow-right:after {
+  content: image-url('arrow-right.png');
+  left: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}

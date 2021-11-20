@@ -1,0 +1,121 @@
+.nav {
+  @include clearfix;
+  height: 64px;
+  z-index: 500;
+}
+
+.nav__item {
+  width: 20%;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  position: relative;
+  white-space: nowrap;
+
+  &:nth-of-type(1) {
+    width: 15%;
+  }
+
+  &:nth-of-type(2) {
+    width: 20%;
+  }
+
+  &:nth-of-type(3) {
+    width: 30%;
+  }
+
+  &:nth-of-type(4) {
+    width: 20%;
+  }
+
+  &:nth-of-type(5) {
+    width: 15%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 20;
+    width: 1px;
+    height: 130%;
+    right: 0;
+    top: -15%;
+    background-color: rgba(0, 0, 0, .4);
+  }
+
+  &:last-of-type:after {
+    content: none;
+  }
+}
+
+.nav__item-link {
+  text-transform: uppercase; 
+  padding: 18px 0 14px;
+  height: 61px;
+}
+
+@media(max-width: $tablet-breakpoint) {
+  .nav {
+    position: fixed;
+    display: none;
+    right: 0;
+    top: 83px;
+    height: auto;
+    max-width: 400px;
+    background-color: $highlight-color;
+  }
+
+  .nav__item:nth-of-type(1n) {
+    width: 100%;
+    display: block;
+  }
+
+  .nav__item {
+    
+  }
+
+  .nav__item-link {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+    background-color: #ca4320;
+
+    &:before,
+    &:after {
+      content: none;
+    }
+  }
+
+  .nav-top-active {
+    .nav {
+      display: block;
+    }
+
+    .nav-button {
+      background-image: image-url('menu-active.png');
+    }
+  }
+
+  .nav-button {
+    @include background-size(contain);
+    background-image: image-url('menu.png');
+    width: 80px;
+    height: 70px;
+    display: block;
+    float: right;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
+
+@media(max-width: $mobile-breakpoint) {
+  .nav-button {
+    width: 50px;
+    height: 44px;
+  }
+
+  .nav {
+    top: 59px;
+  }
+}

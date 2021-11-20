@@ -1,0 +1,78 @@
+extends _layout
+
+block title
+	title Digital marketing expert - Linkedin, Google, Facebook, Youtube
+
+block body
+	.main-overflow.index.remodal-bg
+
+		.right-block
+			.right-block__content
+
+				.tablet-sticky-nav
+					.tablet-sticky-nav-text
+						h1.right-block__heading
+							a(href="index.html") Diana Masopust
+							br
+							small.right-block__heading-small Smart PPC Solutions
+						p.phone Phone:
+							a.phone__value(href="tel:420775665956") +420 775 665 956
+
+					.nav-button
+
+				.tablet-header-wrap
+					a.video-link.gradient-orange(href="#how-it-works")
+						div.video-link__text HOW I CAN HELP 
+						img.video-link__img(src="images/diana.jpeg", alt="Video link")
+
+					a.message-link.gradient-orange(href="#message")
+						.message-link__zavinac
+						.message-link__uppercase Contact me
+
+		.main-text-block
+			block content
+				.right-box-bottom
+					.social-box__nav
+						.social-box__nav-item
+							.social-box__follow follow me
+						.social-box__nav-item
+							a.social-box__fb(href="https://www.facebook.com/smartppc.solutions", target="_blank")
+						.social-box__nav-item
+							a.social-box__gplus(href="https://plus.google.com/117915199654498098543", target="_blank")
+						.social-box__nav-item
+							a.social-box__linkedin(href="https://www.linkedin.com/company/smart-ppc-solutions", target="_blank")
+						.social-box__nav-item
+							a.social-box__skype(href="skype:diana.masopust?userinfo")
+
+					img.right-box-bottom__img(src="images/masopust-ilustrace.png", alt="Diana masopust")
+
+				.remodal.video-remodal(data-remodal-id="how-it-works")
+					#how-it-works-video-iframe-api
+				.remodal.message(data-remodal-id="message")
+					.remodal-text-block
+						h3.message__heading Contact me
+						p(id="errors")
+						form.message__form(id="contact-form", action="/send.php", method="post")
+							input.uid(name="uid",type="text")
+							.message__form-row
+								.message__form-name
+									input.message__form-bold(name="name", type="text", placeholder="Your name *", required)
+								.message__form-email
+									input.message__form-bold(name="email", type="email", placeholder="Your email *", required)
+							.message__form-row
+								.message__form-phone
+									input.message__form-bold(name="phone", type="tel", placeholder="Your phone *", required)
+								.message__form-url
+									input(name="url", type="url", placeholder="Your website")
+							.message__form-textarea
+								textarea.message__form-bold(name="message", placeholder="Your message *", required)
+							.message__form-submit
+								button(type="submit") Submit
+
+						button(data-remodal-action="close", class="remodal-close")
+
+
+
+				footer.footer.copyright
+					.container
+						p Copyright Diana Masopust

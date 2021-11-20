@@ -1,0 +1,85 @@
+.youtube-table {
+  td {
+    vertical-align: top;
+    ul {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+
+}
+
+.service-table {
+  @include clearfix;
+  margin: 70px 0;
+}
+
+.service-col {
+  width: 33.333%;
+  float: left;
+}
+
+.service-table__item {
+  @include transition-property(color background-color);
+  @include transition-duration($transition-duration);
+  padding: 20px 20px 80px;
+  color: $background-color;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  font-weight: 400;
+
+  &:hover {
+    background-color: #FFF;
+    color: $heading-color;
+
+    .service-table__item-heading {
+      color: $heading-color;
+    }
+  }
+
+  .continue-reading {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.service-table__item-heading {
+  @include transition-property(color);
+  @include transition-duration($transition-duration);
+  color: $background-color;
+}
+
+.pre-campaign-table-item,
+.consulting-table-item {
+  background-color: $dark-color;
+}
+
+.copywriting-table-item,
+.remarketing-table-item {
+  background-color: $heading-color;
+}
+
+.pay-per-click-table-item {
+  background-color: $highlight-color;
+}
+
+@media(max-width: $tablet-breakpoint) {
+  .service-table {
+    margin-top: 0;
+  }
+}
+
+@media(max-width: 750px) {
+  .service-col {
+    width: 50%;
+  }
+}
+
+@media(max-width: 536px) {
+  .service-col {
+    width: 100%;
+  }
+}

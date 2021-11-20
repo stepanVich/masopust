@@ -1,0 +1,177 @@
+{
+  "viewports": [
+    {
+      "name": "phone1",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "name": "phone2",
+      "width": 360,
+      "height": 640
+    },
+    {
+      "name": "phone3",
+      "width": 480,
+      "height": 800
+    },
+    {
+      "name": "phone4",
+      "width": 800,
+      "height": 1280
+    },
+    {
+      "name": "iphone6",
+      "width": 375,
+      "height": 667
+    },
+    {
+      "name": "iphone6P",
+      "width": 414,
+      "height": 736
+    },
+    {
+      "name": "ipad1",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "ipad2",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "name": "pc1",
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "name": "pc2",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "name": "pc3",
+      "width": 1280,
+      "height": 1024
+    },
+    {
+      "name": "pc_1600x900",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "name": "pc4",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "name": "pc5",
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Homepage",
+      "url": "http://local.smartppc.solutions/index.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        ".right-block .tablet-sticky-nav",
+        ".right-block .tablet-header-wrap",
+        ".right.blokc .video-link.gradient-orange",
+        ".index-page-content",
+        ".index-page-content .container",
+        ".desktop-sticky-nav",
+        ".desktop-sticky-nav .nav__item",
+        ".social-box__nav",
+        ".right-box-bottom__img",
+        "aside",
+        "main",
+        "footer",
+        "document"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": null,
+      "onReadyScript": null
+    },
+    {
+      "label": "Services",
+      "url": "http://local.smartppc.solutions/services.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "document",
+        "footer",
+        ".service-table"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": null,
+      "onReadyScript": null
+    },
+    {
+      "label": "Why work with me",
+      "url": "http://local.smartppc.solutions/why.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "document",
+        "footer",
+        ".gradient-orange.get-in-touch"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": null,
+      "onReadyScript": null
+    },
+    {
+      "label": "Pricing",
+      "url": "http://local.smartppc.solutions/pricing.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "document",
+        "footer",
+        ".pricing-table"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": null,
+      "onReadyScript": null
+    },    
+    {
+      "label": "About",
+      "url": "http://local.smartppc.solutions/about.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "document",
+        "footer",
+        ".what-i-offer"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": null,
+      "onReadyScript": null
+    }    
+  ],
+  "paths": {
+    "bitmaps_reference": "../../backstop_data/bitmaps_reference",
+    "bitmaps_test": "../../backstop_data/bitmaps_test",
+    "compare_data": "../../backstop_data/bitmaps_test/compare.json",
+    "casper_scripts": "../../backstop_data/casper_scripts"
+  },
+  "engine": "phantomjs",
+  "report": ["CLI", "browser"],
+  "casperFlags": [],
+  "debug": false,
+  "port": 3001
+}

@@ -1,0 +1,40 @@
+stages:
+  - deploy
+
+deploy_stage:
+  stage: deploy
+  environment:
+    name: stage
+    url: http://smartppc.scheema.cz/
+  before_script:
+    - mkdir -p .ssh
+    - echo "${STAGE_SSH_PRIVATE_KEY}" > ./.ssh/gitlab_ecdsa
+    - echo "${STAGE_SSH_SERVER_HOSTKEYS}" > ./.ssh/known_hosts
+    - chmod 0600 ./.ssh/gitlab_ecdsa
+  script:
+    - echo "Deploying to $STAGE_DIR"
+    - rsync -rvz --delete --exclude='.git/' --exclude='.ssh/' --exclude='.gitlab-ci.yml' --exclude='robots.txt' --exclude='wp-config-stage.php' --exclude='wp-config-production.php' --exclude='wp-content/uploads/' -e "ssh -p22 -i ./.ssh/gitlab_ecdsa -o UserKnownHostsFile=./.ssh/known_hosts" ./dist/ "$STAGE_USER@$STAGE_HOST:$STAGE_DIR"
+    - echo "Done."
+
+deploy_lftp:
+  stage: deploy
+  environment:
+    name: production
+    url: http://smartppc.solutions/
+  before_script:
+    - lftp -e "set ftp:ssl-force; set ssl:verify-certificate no; set ftp:list-options -a; get ${PROD_FTP_DIR}.gitlab-ci-last; quit" -u $PROD_FTP_USER,$PROD_FTP_PASS $PROD_FTP_HOST || true
+    - echo "last=$(cat .gitlab-ci-last)"
+    - echo "cd '$PROD_FTP_DIR'" > deleted.txt
+    - git diff --name-only --no-renames --diff-filter=D  -z $(cat .gitlab-ci-last) -- "" | sed 's/\x0/\n/g' | sed "s/^\(.*\)$/rm '\1';/g" >> deleted.txt
+    - echo "deleted=$(cat deleted.txt)"
+  script:
+    - echo "Deploying to $PROD_FTP_HOST:$PROD_FTP_DIR"
+    - lftp -e "set ftp:ssl-force; set ssl:verify-certificate no; set ftp:list-options -a; source deleted.txt; !rm deleted.txt" -u $PROD_FTP_USER,$PROD_FTP_PASS $PROD_FTP_HOST
+    - lftp -e "set ftp:ssl-force; set ssl:verify-certificate no; set ftp:list-options -a; mirror -v --only-newer --parallel=10 --use-pget-n=10 --exclude ^\.git/$ --exclude wp-content/uploads/ -R . $PROD_FTP_DIR; quit" -u $PROD_FTP_USER,$PROD_FTP_PASS $PROD_FTP_HOST
+    - echo "Done"
+  after_script:
+    - 'echo "$CI_COMMIT_SHA" > .gitlab-ci-last'
+    - lftp -e "set ftp:ssl-force; set ssl:verify-certificate no; set ftp:list-options -a; put .gitlab-ci-last -o ${PROD_FTP_DIR}.gitlab-ci-last; quit" -u $PROD_FTP_USER,$PROD_FTP_PASS $PROD_FTP_HOST
+  only:
+    - master
+  when: manual

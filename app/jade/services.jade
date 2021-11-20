@@ -1,0 +1,44 @@
+extends _page-layout
+
+prepend content
+	.services-page-content
+		.container
+			header.header.main-block
+				h1.header__title Services
+				p The battle for business success is now fought mostly online. Increasing relevant visitor traffic and getting them to convert before your competitors do is key to boost your sales.<br>And don’t be resting on the laurels of success! Go further: understand your customer behavior and use the powerful insights to boost your ROI even higher!
+
+		include _desktop-sticky-nav
+
+		main.main.main-block
+			.container
+				h3 Here’s how I can help:
+			.service-table
+				.service-col
+					a.service-table__item.pre-campaign-table-item(href="pre-campaign.html")
+						h3.service-table__item-heading Pre-campaing analysis. FREE!
+						p Is your website ready to convert the visits into leads and sales?
+						.continue-reading.get-in-touch--inline Read more
+
+					a.service-table__item.copywriting-table-item(href="copywriting.html")
+						h3.service-table__item-heading Copywriting
+						p Strong and concise sales propositions that will generate you new business.
+						.continue-reading.get-in-touch--inline Read more
+
+				.service-col
+					a.service-table__item.pay-per-click-table-item(href="pay-per-click.html")
+						h3.service-table__item-heading 
+							| Pay-Per-Click Campaign Management &amp; Optimization
+						p Generate relevant web traffic that converts with Google Adwords, LinkedIn, Facebook or Youtube.
+						.continue-reading.get-in-touch--inline Read more
+
+				.service-col
+					a.service-table__item.remarketing-table-item(href="remarketing.html") 
+						h3.service-table__item-heading Remarketing
+						p Bring back your website visitors who left without completing a transaction!
+						.continue-reading.get-in-touch--inline Read more
+
+					a.service-table__item.consulting-table-item(href="consulting.html")
+						h3.service-table__item-heading Consulting
+						p You have one or more campaigns that you run through Adwords and don’t get the expected ROI?
+						.continue-reading.get-in-touch--inline Read more
+

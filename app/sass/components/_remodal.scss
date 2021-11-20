@@ -1,0 +1,70 @@
+.remodal-bg.remodal-is-opened,
+.remodal-bg.remodal-is-opening {
+  @include filter(blur(0px));
+}
+
+.remodal-overlay {
+  background: rgba(54, 62, 86, 0.9);
+}
+
+.remodal {
+  @include border-radius($border-radius);
+  background-color: $background-color;
+}
+
+.video-remodal {
+  @include border-radius(0);
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.message__heading {
+  color: #0e102c;
+  font-size: 26px;
+  line-height: 21px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 26px 0 50px;
+}
+
+.message__form {
+  .uid {
+    display: none;
+  }
+}
+
+.message__form-row {
+  @include clearfix;
+}
+
+.message__form-name,
+.message__form-email,
+.message__form-phone,
+.message__form-url {
+  @include span(6 of 12);
+}
+
+.message__form-email,
+.message__form-url {
+  @include last;
+}
+
+.message__form-textarea {
+  margin-bottom: 40px;
+}
+
+.message__form-submit {
+  margin-bottom: 40px;
+}
+
+.remodal-close {
+  left: auto;
+  right: 15px;
+  top: 15px;
+  @include box-shadow(none);
+
+  &:before {
+  	content: image-url('krizek.png');
+  }
+}

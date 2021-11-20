@@ -1,0 +1,37 @@
+// Colors
+
+$color1: #52558e; // light-blue 
+$color2: #f1edec; // white
+$color3: #1a1c47; // dark-blue    
+$color4: #da5021; // orange
+$color5: #363636; // dark
+
+$text-color: $color5;
+$heading-color: $color1;
+$dark-color: $color3;
+$highlight-color: $color4;
+$main-background-color: $color1;
+$background-color: $color2;
+$form-background: #FFF;
+
+// Shapes
+$border-radius: 5px;
+
+// Fonts
+$text-font: 'aaux-next', 'Arial', sans-serif;
+
+// Gradients
+
+// Borders
+$border: 1px solid rgba($heading-color, 0.5);
+
+// Transition time
+$transition-duration: 270ms;
+
+// Layout
+$right-block-offset: 60%;
+
+// Breakpoints
+$tablet-breakpoint: 1364px;
+$mobile-breakpoint: 750px;
+$header-phone-breakpoint: 527px;

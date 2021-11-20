@@ -1,0 +1,82 @@
+// Navigation active page highlight
+.index-page-content .nav-home-link,
+.services-page-content .nav-services-link,
+.pricing-page-content .nav-pricing-link,
+.why-page-content .nav-why-link,
+.about-page-content .nav-about-link,
+.pre-campaign-page-content .nav-services-link,
+.copywriting-page-content .nav-services-link,
+.pay-per-click-page-content .nav-services-link,
+.remarketing-page-content .nav-services-link,
+.consulting-page-content .nav-services-link
+ {
+  @extend .gradient-orange;
+  @extend .gradient-orange-active;
+}
+
+// What i can offer
+// Hide current offer in list
+.pre-campaign-page-content {
+  .pre-campaign-offer {
+  	display: none;
+  }
+  .what-i-offer__item {
+    width: 25%;
+    @media(max-width: 640px) {
+      width: 50%;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+.copywriting-page-content {
+  .copywriting-offer {
+    display: none;
+  } 
+  .what-i-offer__item {
+    width: 25%;
+    @media(max-width: 640px) {
+      width: 50%;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+.pay-per-click-page-content {
+  .pay-per-click-offer {
+  	display: none;
+  }
+  .what-i-offer__item {
+    width: 25%;
+    @media(max-width: 640px) {
+      width: 50%;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+.remarketing-page-content {
+  .remarketing-offer {
+  	display: none;
+  }
+  .what-i-offer__item {
+    width: 25%;
+    @media(max-width: 640px) {
+      width: 50%;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+.consulting-page-content {
+  .consulting-offer {
+  	display: none;
+  }
+  .what-i-offer__item {
+    width: 25%;
+    @media(max-width: 640px) {
+      width: 50%;
+      padding-bottom: 1px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.pricing-table-wrap {
+  margin: 40px 0;
+}
+
+.pricing-table {
+  margin: 0;
+
+  th,
+  td {
+  	width: 16.66%;
+  }
+
+}
+
+.pricing-table2 {
+  margin: 0;
+
+  th,
+  td {
+  	width: 25%;
+  }
+
+}
+
+.pricing-table3 {
+  margin: 0;
+
+  th,
+  td {
+  	width: 16.66%;
+  }
+
+}
+
+@media(max-width: 900px) {
+  .pricing-table-wrap {
+  	max-width: 100%;
+    overflow: auto;
+  }
+
+  .pricing-table, .pricing-table2, .pricing-table3 {
+  	min-width: 900px
+  }
+}

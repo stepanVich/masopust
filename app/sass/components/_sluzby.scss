@@ -1,0 +1,39 @@
+.sluzby-aside + .main-block {
+  padding-top: 20px;
+}
+
+.sluzby {
+  @include clearfix;
+  background-color: $heading-color;
+  border-radius: $border-radius;
+  color: $background-color;
+  padding: 50px 45px 30px;
+}
+
+.sluzba {
+  width: 50%;
+  float: left;
+}
+
+.sluzba1 {
+  padding-right: 45px;
+}
+
+.sluzba__heading {
+  color: $background-color;
+  font-weight: 700;
+}
+
+@media(max-width: $mobile-breakpoint) {
+  .sluzby {
+    padding: 30px 15px 15px;
+  }
+
+  .sluzba {
+    width: 100%;
+  }
+
+  .sluzba1 {
+    margin-bottom: 20px;
+  }
+}

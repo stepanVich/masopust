@@ -1,0 +1,64 @@
+input,
+button,
+textarea {
+  @include box-shadow(2px 2.2px 0 #cac6c4);
+  @include border-radius($border-radius);
+  @include input-placeholder {
+    color: $text-color;
+    font-weight: 400;
+  }
+  background-color: $form-background;
+  border: none;
+  color: $text-color;
+  font-family: $text-font;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  padding: 14px;
+  line-height: 22px;
+  display: block;
+  width: 100%;
+}
+
+.message__form-bold {
+  font-weight: 700;
+  @include input-placeholder {
+    font-weight: 700;
+  }
+}
+
+.message__form-row,
+.message__form-textarea {
+  padding: 0 2px;
+}
+
+input[type="submit"],
+button[type="submit"] {
+  @extend .gradient-orange;
+  @extend .gradient-border-radius;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 167px;
+  margin: 0 auto;
+}
+
+textarea {
+  resize: vertical;
+  height: 147px;
+}
+
+input:focus,
+textarea:focus {
+  @include box-shadow(2px 2.2px 0 #3c3c3c);
+  outline: none;
+}
+
+.error-message {
+  color: $highlight-color;
+  margin-bottom: 10px;
+}
+
+.uid {
+    display: none;
+}

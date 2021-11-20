@@ -1,0 +1,59 @@
+doctype html
+html(lang="en", class="wf-loading no-js")
+	head
+		block title
+			title Titulek stránky
+
+		//- Page Encoding
+		meta(charset="UTF-8")
+
+		//- Viewport
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+
+		//- Basic meta tags
+		meta(name='author', content='Schema Digital s.r.o.')
+		meta(name='description', content='Get relevant web traffic and boost your sales, visibility and ROI! Powerful ads. PPC performance. Remarketing. Free analysis. Full transparency.')
+		meta(name='keywords', content='PPC, Adwords, Linkedin marketing, Linkedin advertising, Facebook advertising, Facebook ads, remarketing, digital marketing, demand generation, lead generation')
+
+		//- Facebook meta tags
+		meta(property="og:image", content="facebook-og-image.png")
+		meta(property="og:title", content="")
+		meta(property="og:url", content="")
+		meta(property="og:site_name", content="")
+		meta(property="og:type", content="")
+
+		//- Favicons
+		//link(rel="apple-touch-icon", href="apple-touch-icon.png")
+		link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
+
+		//- useref
+		// build:css css/app.min.css
+		// bower:css
+		// endbower
+		link(rel="stylesheet", type="text/css", href="css/style.css")
+		// endbuild
+
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-83808500-1', 'auto');
+			ga('send', 'pageview');
+
+		script.
+			!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/9fda11fedc3124dea893a88fa/e91b076fe4155714ae54c0228.js");
+
+	body
+		block body
+
+		// build:js js/app.min.js
+		// bower:js
+		// endbower
+		script(src="js/sticky-nav.js")
+		script(src="js/responsive-video.js")
+		script(src="js/form-validate.js")
+		script(src="js/youtube-video.js")
+		script(src="js/nav-button.js")
+		script(src="js/flex-height.js")
+		// endbuild
+
+		|<script src="https://use.typekit.net/exb0eju.js"></script>
+		|<script>try{Typekit.load({ async: true });}catch(e){}</script>

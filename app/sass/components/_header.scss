@@ -1,0 +1,25 @@
+.header {
+  padding-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.header__title {
+  font-weight: 700;
+}
+
+@media(min-width: ($tablet-breakpoint + 1)) {
+  .header {
+    height: 277px;
+  }
+}
+
+@media(max-width: $tablet-breakpoint) {
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header__title {
+  	margin-bottom: 20px;
+  }
+}
