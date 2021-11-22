@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	console.log("Web Design by Scheema Digital s.r.o. https://scheemadigital.com/");
 	function fixHeight(elements, minWidth, maxWidth) {
 		// Set basic values
 		var elements = $(elements),
