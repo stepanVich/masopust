@@ -862,7 +862,7 @@ iframe {
 }
 
 .message-link__zavinac:after {
-  content: url('../images/zavinac.png?1531122350');
+  content: url('../images/zavinac.png?1637673412');
 }
 
 .message-link__zavinac:before {
@@ -1079,7 +1079,7 @@ iframe {
     display: block;
   }
   .nav-top-active .nav-button {
-    background-image: url('../images/menu-active.png?1531122350');
+    background-image: url('../images/menu-active.png?1637673412');
   }
 
   .nav-button {
@@ -1087,7 +1087,7 @@ iframe {
     -o-background-size: contain;
     -webkit-background-size: contain;
     background-size: contain;
-    background-image: url('../images/menu.png?1531122350');
+    background-image: url('../images/menu.png?1637673412');
     width: 80px;
     height: 70px;
     display: block;
@@ -1150,7 +1150,7 @@ iframe {
   width: 30%;
 }
 .social-box__nav-item:nth-of-type(1):after {
-  content: url('../images/arrow-right-nav.png?1531122350');
+  content: url('../images/arrow-right-nav.png?1637673412');
   top: -17px;
 }
 .social-box__nav-item:nth-of-type(2), .social-box__nav-item:nth-of-type(3), .social-box__nav-item:nth-of-type(4), .social-box__nav-item:nth-of-type(5) {
@@ -1163,35 +1163,35 @@ iframe {
 }
 
 .social-box__fb:after {
-  content: url('../images/1-wireframe.png?1531122350');
+  content: url('../images/1-wireframe.png?1637673412');
 }
 
 .social-box__gplus:after {
-  content: url('../images/2-wireframe.png?1531122350');
+  content: url('../images/2-wireframe.png?1637673412');
 }
 
 .social-box__linkedin:after {
-  content: url('../images/3-wireframe.png?1531122350');
+  content: url('../images/3-wireframe.png?1637673412');
 }
 
 .social-box__skype:after {
-  content: url('../images/4-wireframe.png?1531122350');
+  content: url('../images/4-wireframe.png?1637673412');
 }
 
 .social-box__fb:before {
-  content: url('../images/1-wireframe-hover.png?1531122350');
+  content: url('../images/1-wireframe-hover.png?1637673412');
 }
 
 .social-box__gplus:before {
-  content: url('../images/2-wireframe-hover.png?1531122350');
+  content: url('../images/2-wireframe-hover.png?1637673412');
 }
 
 .social-box__linkedin:before {
-  content: url('../images/3-wireframe-hover.png?1531122350');
+  content: url('../images/3-wireframe-hover.png?1637673412');
 }
 
 .social-box__skype:before {
-  content: url('../images/4-wireframe-hover.png?1531122350');
+  content: url('../images/4-wireframe-hover.png?1637673412');
 }
 
 .right-box-bottom__img {
@@ -1286,7 +1286,7 @@ iframe {
 }
 
 .arrow-right:after {
-  content: url('../images/arrow-right.png?1531122350');
+  content: url('../images/arrow-right.png?1637673412');
   left: auto;
   position: absolute;
   left: 0;
@@ -1505,7 +1505,7 @@ iframe {
   box-shadow: none;
 }
 .remodal-close:before {
-  content: url('../images/krizek.png?1531122350');
+  content: url('../images/krizek.png?1637673412');
 }
 
 .pre-campaign-page-content .pre-campaign-offer {

@@ -5,6 +5,8 @@ const plugins = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
 const fs = require('fs');
 
+var browserSync = require('browser-sync').create();
+
 console.timeEnd("Loading plugins");
 
 var gulp_src = gulp.src;
@@ -17,6 +19,34 @@ gulp.src = function() {
   );
 };
 
+
+gulp.task('server', function() {
+
+	// server part via browser-sync
+   browserSync.init({
+      server: {
+         baseDir: 'dist'
+      }
+   });
+
+   	// watcher part
+	gulp.watch('app/sass/**/*.+(scss|sass)', { events: 'all' }, function(cb) {
+	    console.log("Change in SASS file");
+	    runSequence('compass', 'html');
+	});
+
+	gulp.watch('app/jade/**/*.jade', { events: 'all' }, function(cb) {
+	    console.log("Change in JADE file");
+	    runSequence('jade', 'html');
+	});
+
+	gulp.watch('app/js/**/*.js', { events: 'all' }, function(cb) {
+	    console.log("Change in JS file");
+	    runSequence('html');
+	});
+
+})
+
 gulp.task('compass', function() {
   return gulp.src('app/sass/**/*.+(scss|sass)')
     .pipe(plugins.compass({
@@ -27,10 +57,6 @@ gulp.task('compass', function() {
      }))
     .pipe(gulp.dest('app/css'));
 });
-
-gulp.task('watch-run', function() {
-	runSequence('watch', 'run');
-})
 
 gulp.task('jade', function() {
 	var template_vars = {};
@@ -47,11 +73,21 @@ gulp.task('html', function() {
 	return gulp.src('app/**/*.html')
 	.pipe(plugins.wiredep())
 	.pipe(plugins.useref())
+	.pipe(gulp.dest('dist'))
+	.pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('html-minify', function() {
+	//htmlValidate();
+	return gulp.src('app/**/*.html')
+	.pipe(plugins.wiredep())
+	.pipe(plugins.useref())
 	.pipe(plugins.if('*.js', plugins.uglify()))
 	.pipe(plugins.if('*.css', plugins.cssnano()))
-	.pipe(plugins.if('*.html', plugins.htmlmin({collapseWhitespace: false})))
+	.pipe(plugins.if('*.html', plugins.htmlmin({collapseWhitespace: true})))
 	.pipe(gulp.dest('dist'));
 });
+
 
 gulp.task('images', function() {
 	return gulp.src('app/images/**/*.+(png|jpg|gif|svg|ico)')
@@ -118,23 +154,31 @@ gulp.task('css-base-64', function() {
 		.pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('build', function (callback) {
+gulp.task('build-development', function (callback) {
 	runSequence('clean:dist',
-		['compass','jade', 'images', 'fonts'],
+		['compass','jade'],
 		'html',
 		callback
 	);
 });
 
-gulp.task('build-full', function(callback) {
+/*gulp.task('build-full', function(callback) {
 	['build'],
 	'css-postproces',
 	callback
+});*/
+
+gulp.task('build-production', function (callback) {
+	runSequence('clean:dist',
+		['compass','jade', 'images', 'fonts'],
+		'html-minify',
+		callback
+	);
 });
 
 gulp.task('default', function (callback) {
 	runSequence(
-		['build'],
+		['build-development'],
 		callback
 	);
 });
