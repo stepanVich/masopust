@@ -89,15 +89,28 @@ gulp.task('html-minify', function() {
 });
 
 
+
 gulp.task('images', function() {
-	return gulp.src('app/images/**/*.+(png|jpg|gif|svg|ico)')
+	return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
+	.pipe(gulp.dest('dist/images'));
+});
+
+
+gulp.task('images-min', function() {
+	return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
 	.pipe(plugins.cache(plugins.imagemin({
 
 	})))
 	.pipe(gulp.dest('dist/images'));
 });
 
+
 gulp.task('fonts', function() {
+	return gulp.src('app/fonts/*.*')
+	pipe(gulp.dest('dist/fonts/'));
+});
+
+gulp.task('fonts-min', function() {
 	runSequence('fonts-subset', 'fonts-multiply');
 });
 
@@ -135,7 +148,7 @@ gulp.task('fonts-multiply', function() {
 
 gulp.task('clean:dist', function() {
 	const del = require('del');
-	return del.sync('!dist/send.php', 'dist');
+	return del.sync('dist');
 });
 
 gulp.task('cache:clear', function (callback) {
@@ -156,7 +169,7 @@ gulp.task('css-base-64', function() {
 
 gulp.task('build-development', function (callback) {
 	runSequence('clean:dist',
-		['compass','jade'],
+		['compass','jade', 'images', 'fonts'],
 		'html',
 		callback
 	);
@@ -170,7 +183,7 @@ gulp.task('build-development', function (callback) {
 
 gulp.task('build-production', function (callback) {
 	runSequence('clean:dist',
-		['compass','jade', 'images', 'fonts'],
+		['compass','jade', 'images-min', 'fonts-min'],
 		'html-minify',
 		callback
 	);
