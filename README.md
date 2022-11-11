@@ -25,7 +25,7 @@ export PATH=$PATH:/usr/local/lib/ruby/gems/2.7.0/bin/
 
 Nainstalovat všechny lokální balíčky:
 ```
-npm update
+npm install
 ```
 
 Nabuildovat projekt:
