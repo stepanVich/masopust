@@ -8,7 +8,7 @@ npm install -g bower
 npm install -g gulp
 ```
 
-```
+
 Nainstalovat ruby a compass:
 ```
 brew install ruby
