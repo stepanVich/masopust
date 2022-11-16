@@ -2,7 +2,7 @@ console.time("Loading plugins");
 
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 const fs = require('fs');
 
 var browserSync = require('browser-sync').create();
@@ -47,7 +47,7 @@ gulp.task('server', function() {
 
 })
 
-gulp.task('compass', function() {
+gulp.task('compass', async function() {
   return gulp.src('app/sass/**/*.+(scss|sass)')
     .pipe(plugins.compass({
       css: 'app/css',
@@ -58,7 +58,7 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('app/css'));
 });
 
-gulp.task('jade', function() {
+gulp.task('jade', async function() {
 	var template_vars = {};
 	return gulp.src(['app/jade/*.jade', '!app/jade/_*.jade'])
 	.pipe(plugins.jade({
@@ -68,7 +68,7 @@ gulp.task('jade', function() {
 	.pipe(gulp.dest('app'));
 });
 
-gulp.task('html', function() {
+gulp.task('html', async function() {
 	//htmlValidate();
 	return gulp.src('app/**/*.html')
 	.pipe(plugins.wiredep())
@@ -77,7 +77,7 @@ gulp.task('html', function() {
 	.pipe(browserSync.reload({stream:true}));
 });
 
-gulp.task('html-minify', function() {
+gulp.task('html-minify', async function() {
 	//htmlValidate();
 	return gulp.src('app/**/*.html')
 	.pipe(plugins.wiredep())
@@ -90,13 +90,13 @@ gulp.task('html-minify', function() {
 
 
 
-gulp.task('images', function() {
+gulp.task('images', async function() {
 	return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
 	.pipe(gulp.dest('dist/images'));
 });
 
 
-gulp.task('images-min', function() {
+gulp.task('images-min', async function() {
 	return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
 	.pipe(plugins.cache(plugins.imagemin({
 
@@ -105,16 +105,16 @@ gulp.task('images-min', function() {
 });
 
 
-gulp.task('fonts', function() {
+gulp.task('fonts', async function() {
 	return gulp.src('app/fonts/*.*')
 	pipe(gulp.dest('dist/fonts/'));
 });
 
-gulp.task('fonts-min', function() {
+gulp.task('fonts-min', async function() {
 	runSequence('fonts-subset', 'fonts-multiply');
 });
 
-gulp.task('fonts-subset', function() {
+gulp.task('fonts-subset', async function() {
 	const Fontmin = require('fontmin');
 
 	var fontmin = new Fontmin()
@@ -132,7 +132,7 @@ gulp.task('fonts-subset', function() {
 	});
 });
 
-gulp.task('fonts-multiply', function() {
+gulp.task('fonts-multiply', async function() {
 	const Fontmin = require('fontmin');
 
 	var ttfSubset = new Fontmin()
@@ -146,20 +146,20 @@ gulp.task('fonts-multiply', function() {
 	});
 })
 
-gulp.task('clean:dist', function() {
+gulp.task('clean:dist', async function() {
 	const del = require('del');
 	return del.sync('dist');
 });
 
-gulp.task('cache:clear', function (callback) {
+gulp.task('cache:clear', async function (callback) {
 	return plugins.cache.clearAll(callback);
 });
 
-gulp.task('css-postproces', function() {
+gulp.task('css-postproces', async function() {
 	runSequence('css-base-64', 'critical-css');
 });
 
-gulp.task('css-base-64', function() {
+gulp.task('css-base-64', async function() {
 	return gulp.src('dist/css/**/*.css')
 		.pipe(plugins.cssBase64({
 			maxWeightResource: 60000
@@ -167,7 +167,7 @@ gulp.task('css-base-64', function() {
 		.pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('build-development', function (callback) {
+gulp.task('build-development', async function (callback) {
 	runSequence('clean:dist',
 		['compass','jade', 'images', 'fonts'],
 		'html',
@@ -181,7 +181,7 @@ gulp.task('build-development', function (callback) {
 	callback
 });*/
 
-gulp.task('build-production', function (callback) {
+gulp.task('build-production', async function (callback) {
 	runSequence('clean:dist',
 		['compass','jade', 'images-min', 'fonts-min'],
 		'html-minify',
@@ -189,7 +189,7 @@ gulp.task('build-production', function (callback) {
 	);
 });
 
-gulp.task('default', function (callback) {
+gulp.task('default', async function (callback) {
 	runSequence(
 		['build-development'],
 		callback
@@ -250,7 +250,7 @@ function htmlValidate() {
 	}
 }
 
-gulp.task('critical-css', function() {
+gulp.task('critical-css', async function() {
 	const critical = require('critical').stream;
 	return gulp.src('dist/**/*.html')
 		.pipe(critical({

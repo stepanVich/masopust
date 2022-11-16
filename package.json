@@ -22,7 +22,7 @@
     "critical": "^0.8.4",
     "del": "^3.0.0",
     "fontmin": "^0.9.6",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-cache": "^0.4.6",
     "gulp-chug": "^0.5.1",
     "gulp-compass": "^2.1.0",
@@ -41,6 +41,6 @@
     "gulp-watch": "^4.3.11",
     "gulp-wiredep": "1.2.0",
     "html-validator": "^2.2.1",
-    "run-sequence": "^1.2.2"
+    "gulp4-run-sequence": "^1.0.0"
   }
 }
