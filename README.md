@@ -8,9 +8,6 @@ npm install -g bower
 npm install -g gulp
 ```
 
-Přepnout verzi nodejs:
-```
-sudo n 11.15.0
 ```
 Nainstalovat ruby a compass:
 ```
